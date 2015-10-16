@@ -3,9 +3,12 @@
 
 let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
 
+
+
 set nocompatible " explicitly get out of vi-compatible mode
 set noexrc " don't use local version of .(g)vimrc, .exrc
-set background=dark
+set background=light
+colorscheme solarized
 set fenc=utf-8 " UTF-8
 set cpoptions=aABceFsmq
     "             |||||||||
@@ -102,17 +105,21 @@ let use_xhtml = 0
     endfunction " }
     set foldtext=SimpleFoldText() " Custom fold text function (cleaner than default)
 
+" This is because CDN ENG doesn't use spaces for tabs: 
+autocmd Filetype perl setlocal ts=4 sw=4 sts=0 noexpandtab
+
+
+
 " Term Settings
-if s:colorful_term
-    "256 color --
-    let &t_Co=256
-    colorscheme default
-    " restore screen after quitting
-    if has("terminfo")
-        let &t_Sf="\ESC[3%p1%dm"
-        let &t_Sb="\ESC[4%p1%dm"
-    else
-        let &t_Sf="\ESC[3%dm"
-        let &t_Sb="\ESC[4%dm"
-    endif
-endif
+"if s:colorful_term
+"    "256 color --
+"    let &t_Co=256
+"    " restore screen after quitting
+"    if has("terminfo")
+"        let &t_Sf="\ESC[3%p1%dm"
+"        let &t_Sb="\ESC[4%p1%dm"
+"    else
+"        let &t_Sf="\ESC[3%dm"
+"        let &t_Sb="\ESC[4%dm"
+"    endif
+"endif
