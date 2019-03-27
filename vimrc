@@ -8,7 +8,7 @@ let s:colorful_term = (&term =~ "xterm") || (&term =~ "screen")
 set nocompatible " explicitly get out of vi-compatible mode
 set noexrc " don't use local version of .(g)vimrc, .exrc
 set background=light
-colorscheme solarized
+" colorscheme solarized
 set fenc=utf-8 " UTF-8
 set cpoptions=aABceFsmq
     "             |||||||||
@@ -51,6 +51,7 @@ let html_use_css = 0
 let use_xhtml = 0
 
 " Vim UI
+    set modeline
     set incsearch " BUT do highlight as you type you search phrase
     set laststatus=2 " always show the status line
     set lazyredraw " do not redraw while running macros
