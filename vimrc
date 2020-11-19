@@ -106,9 +106,25 @@ let use_xhtml = 0
     endfunction " }
     set foldtext=SimpleFoldText() " Custom fold text function (cleaner than default)
 
-" This is because CDN ENG doesn't use spaces for tabs: 
-autocmd Filetype perl setlocal ts=4 sw=4 sts=0 noexpandtab
 
+
+call plug#begin('~/.config/nvim/plugged')
+
+Plug 'editorconfig/editorconfig-vim' " For filetype management.
+Plug 'elzr/vim-json' " For metadata.json
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Install fuzzy finder. Use whatever you prefer for file browsing
+Plug 'junegunn/fzf.vim' " Fuzzy Finder vim plugin
+Plug 'mrk21/yaml-vim' " For hieradata
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}} " Language Server support
+Plug 'rodjek/vim-puppet' " For Puppet syntax highlighting
+Plug 'vim-ruby/vim-ruby' " For Facts, Ruby functions, and custom providers
+
+call plug#end()
+
+
+" This is because CDN ENG doesn't use spaces for tabs: 
+" autocmd Filetype perl setlocal ts=4 sw=4 sts=0 noexpandtab
+autocmd Filetype ruby setlocal ts=2 sw=2 sts=0 expandtab
 
 
 " Term Settings
