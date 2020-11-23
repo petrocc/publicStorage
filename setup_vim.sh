@@ -24,7 +24,10 @@ curl https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/c
 
 if [[ $? -eq 0 ]]; 
 then
-    sed -i 's/\" colorscheme/colorscheme/' ~/.vimrc
+    sed -i -e  's/\" colorscheme/colorscheme/' ~/.vimrc
 else
     echo "Couldn't grab the Solarized color scheme for VIM, not configuring"
 fi
+
+# Set up vim autoload plugins:
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
